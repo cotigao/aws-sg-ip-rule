@@ -8,7 +8,7 @@ stn="https://api.ipify.org"
 function usage {
  echo "             Add rule: $0 a -n <rule_name> -s <security_group_id> -f <start_inbound_tcp_port> -t <end_inbound_tcp_Port>"
  echo "Update rule (only IP): $0 u -n <rule_name>"
- echo "          Revoke rule: $0 r -n <rule_name>"
+ echo "          Revoke rule: $0 r -n <rule_name> [-d (delete the file)]"
  exit 1   
 }
 
@@ -24,6 +24,9 @@ function run {
         aws ec2 revoke-security-group-ingress --group-id ${array[1]} --ip-permissions '[{"IpProtocol": "tcp", "FromPort": '${array[2]}', "ToPort":  '${array[3]}', "IpRanges": [{"CidrIp" : "'${array[0]}'", "Description" : "'$(basename $2)'"}]}]'
         echo "SUCCESS: revoked "$(cat "$2")
         echo "${array[0]},${array[1]},${array[2]},${array[3]},revoked" > $2
+        if [ ! -z $3 ]; then
+            rm -rf "$2"
+        fi 
     else
         echo "ERROR: $2 not found, can't revoke!"
     fi
@@ -47,7 +50,7 @@ function run {
 op="$1"
 shift
 
-while getopts ":f:t:n:s:" x; do
+while getopts ":f:t:n:ds:" x; do
     case $x in
         n)
             name=${OPTARG}
@@ -60,6 +63,9 @@ while getopts ":f:t:n:s:" x; do
             ;;
         t) 
             to=${OPTARG}
+            ;;
+        d)
+            delete=true
             ;;
         *)
             usage
@@ -120,7 +126,7 @@ elif [ "$op" = "a" ]; then
     fi
     result=$(run "$op" "$name" "$sg" "$from" "$to") 
 elif [ "$op" = "r" ]; then
-    result=$(run "$op" "$name") 
+    result=$(run "$op" "$name" "$delete") 
 else
     result=1
 fi
