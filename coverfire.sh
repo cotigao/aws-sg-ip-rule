@@ -15,5 +15,7 @@ shift
 shift
 
 for x in $@; do
+    echo "handling rule $x"
     ./aws-sg-ip-rule.sh "$op" -n "$x"
+    echo ""
 done
