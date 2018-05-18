@@ -21,8 +21,8 @@ Revoke rule: ./aws-sg-ip-rule.sh r -n <rule_name>
 ```
 
 The above commands allow access to the specified ports(s) from your current IP.
-**Add rule** creates a rule-file in the same directory as the script and with the same name as the rule.
-rule-file holds all the info related to the rule.
+**Add rule** creates a rulefile in the same directory as the script and with the same name as the rule.
+rulefile holds the info related to the rule.
 
 
 ### To update an existing rule (only updates the public IP)
@@ -47,5 +47,11 @@ Removes the rule. i.e removes the access to the port(s) in ```allow-xyz-to-ssh``
 ```
 
 Adds back the revoked rule.
+
+
+### To handle multiple rules at once
+```
+./coverfire.sh -h
+```
 
 
