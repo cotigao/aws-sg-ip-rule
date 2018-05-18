@@ -3,11 +3,12 @@
 ```
 ./aws-sg-ip-rule.sh -h
 
-Add rule: ./aws-sg-ip-rule.sh a -n <rule_name> -s <security_group_id> -f <start_inbound_tcp_port> -t <end_inbound_tcp_port>
+             Add rule: ./aws-sg-ip-rule.sh a -n <rule_name> -s <security_group_id> -f <start_inbound_tcp_port> -t <end_inbound_tcp_Port>
 
 Update rule (only IP): ./aws-sg-ip-rule.sh u -n <rule_name>
 
-Revoke rule: ./aws-sg-ip-rule.sh r -n <rule_name>
+          Revoke rule: ./aws-sg-ip-rule.sh r -n <rule_name> [-d (deletes the rulefile)]
+
 ```
 
 ### To add a inbound rule from your current IP (SSH access)

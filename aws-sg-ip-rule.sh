@@ -8,7 +8,7 @@ stn="https://api.ipify.org"
 function usage {
  echo "             Add rule: $0 a -n <rule_name> -s <security_group_id> -f <start_inbound_tcp_port> -t <end_inbound_tcp_Port>"
  echo "Update rule (only IP): $0 u -n <rule_name>"
- echo "          Revoke rule: $0 r -n <rule_name> [-d (delete the file)]"
+ echo "          Revoke rule: $0 r -n <rule_name> [-d (deletes the rulefile)]"
  exit 1   
 }
 
