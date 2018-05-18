@@ -20,12 +20,12 @@ function run {
     if [[ $# < 2 ]]; then
        echo "1"
     elif [ -f "$2" ]; then
-        IFS=',' read -r -a array < <(cat $2)
+        IFS=',' read -r -a array < "$2"
         aws ec2 revoke-security-group-ingress --group-id ${array[1]} --ip-permissions '[{"IpProtocol": "tcp", "FromPort": '${array[2]}', "ToPort":  '${array[3]}', "IpRanges": [{"CidrIp" : "'${array[0]}'", "Description" : "'$(basename $2)'"}]}]'
         echo "SUCCESS: revoked "$(cat "$2")
         echo "${array[0]},${array[1]},${array[2]},${array[3]},revoked" > $2
         if [ ! -z $3 ]; then
-            rm -rf "$2"
+            rm "$2"
         fi 
     else
         echo "ERROR: $2 not found, can't revoke!"
@@ -94,7 +94,7 @@ fi
 
 if [ "$op" = "u" ]; then
     if [ -f "$name" ]; then
-        IFS=',' read -r -a array < <(cat $name)
+        IFS=',' read -r -a array < "$name"
         result=$(run r $name)
         if [ $(echo "$result" | cut -c1-8) = "SUCCESS:" ]; then
             echo $result    
@@ -105,7 +105,7 @@ if [ "$op" = "u" ]; then
     fi
 elif [ "$op" = "a" ]; then
     if [ -f "$name" ]; then
-        IFS=',' read -r -a array < <(cat $name)
+        IFS=',' read -r -a array < "$name"
         if [ "${array[4]}" = "revoked" ]; then
             answer="y"
             if [ -v sg ] || [ -v from ] || [ -v to ]; then
