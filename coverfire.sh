@@ -1,9 +1,9 @@
 #!/bin/bash
 
 function usage {
-    echo "$0 u -n <rulefile1> <rulefile2> ... "
-    echo "$0 a -n <rulefile1> <rulefile2> ... "
-    echo "$0 r -n <rulefile1> <rulefile2> ... "
+    echo "Add back revoked rule(s) : $0 a -n <rulefile1> <rulefile2> ..."
+    echo "Update rule(s)           : $0 u -n <rulefile1> <rulefile2> ..."
+    echo "Revoke rule(s)           : $0 r -n <rulefile1> <rulefile2> ..." 
     exit 1
 }
 
