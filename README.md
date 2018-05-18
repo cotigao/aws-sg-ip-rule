@@ -22,7 +22,9 @@ Update rule (only IP): ./aws-sg-ip-rule.sh u -n <rule_name>
 ```
 
 The above commands allow access to the specified ports(s) from your current IP.
-**Add rule** creates a rulefile within the script's path and with the same name as the rule.
+
+**Add rule** creates a rulefile with the same name as the rule.
+`rule_name` refers to the rulefile path.
 rulefile holds the info related to the rule. 
 
 
