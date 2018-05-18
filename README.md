@@ -52,6 +52,7 @@ Adds back the revoked rule.
 ### To handle multiple rules at once
 ```
 ./coverfire.sh -h
+
 Add back revoked rule(s) : ./coverfire.sh a -n <rulefile1> <rulefile2> ...
 
 Update rule(s)           : ./coverfire.sh u -n <rulefile1> <rulefile2> ...
