@@ -1,9 +1,9 @@
 #!/bin/bash
 
 function usage {
-    echo "$0 u -n <rul1file1> <rulefile2> ... "
-    echo "$0 a -n <rul1file1> <rulefile2> ... "
-    echo "$0 r -n <rul1file1> <rulefile2> ... "
+    echo "$0 u -n <rulefile1> <rulefile2> ... "
+    echo "$0 a -n <rulefile1> <rulefile2> ... "
+    echo "$0 r -n <rulefile1> <rulefile2> ... "
     exit 1
 }
 
