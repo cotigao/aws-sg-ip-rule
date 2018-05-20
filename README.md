@@ -36,7 +36,7 @@ rulefile holds the info related to the rule.
 Updates the rule with your new public IP
 
 
-### To revoke a rule
+### To revoke a rule (deny)
 ```
 ./aws-sg-ip-rule.sh r -n rules/allow-xyz-to-ssh
 ```
@@ -44,7 +44,7 @@ Updates the rule with your new public IP
 Revokes the rule. i.e removes the access to the port(s) in ```allow-xyz-to-ssh``` from the IP in ```allow-xyz-to-ssh```
 
 
-### To add back a revoked rule (provided the rule-file is not deleted externally)
+### To add back a revoked rule (allow), provided the rulefile is not deleted externally.
 ```
 ./aws-sg-ip-rule.sh a -n rules/allow-xyz-to-ssh
 ```
