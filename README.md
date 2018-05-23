@@ -26,7 +26,7 @@ The above commands allow access to the specified ports(s) from your current IP.
 
 
 
-### If you want to provide the IP address/range (note: should always be a CIDR notation)
+### If you want to provide the IP address or (private) range (note: should always be a CIDR notation)
 ```
 ./aws-sg-ip-rule.sh a -n rules/allow-xyz-range -i 10.0.0.0/8 -s sg-1234abcd -f 3300 -t 3310
 ```
@@ -46,7 +46,7 @@ Updates the rule with your new public IP
 
 
 
-### If you want to provide the IP address/range (note: should always be a CIDR notation)
+### If you want to provide the IP address or (private) range (note: should always be a CIDR notation)
 ```
 ./aws-sg-ip-rule.sh u -n rules/allow-xyz-to-ssh -i 10.0.0.0/8
 ```
