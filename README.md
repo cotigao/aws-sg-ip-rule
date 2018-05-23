@@ -11,13 +11,13 @@ Update rule (only IP): ./aws-sg-ip-rule.sh u [-i <ipaddr/cidr>] -n <rule_name>
 ```
 
 
-### To add a inbound rule from your current IP (SSH access)
+### To add an inbound rule from your current IP (SSH access)
 ```
 ./aws-sg-ip-rule.sh a -n rules/allow-xyz-to-ssh -s sg-1234abcd -f 22 -t 22
 ```
 
 
-### To add a inbound rule from your current IP (range of ports)
+### To add an inbound rule from your current IP (range of ports)
 ```
 ./aws-sg-ip-rule.sh a -n rules/allow-xyz-range -s sg-1234abcd -f 3300 -t 3310
 ```
